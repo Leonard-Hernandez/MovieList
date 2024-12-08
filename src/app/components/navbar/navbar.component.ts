@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharingDataService } from '../../services/sharing-data.service';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'navbar',
@@ -9,6 +10,8 @@ import { SharingDataService } from '../../services/sharing-data.service';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
+
+  @Input() moviesList: Movie[] = [];
 
   search!: string;
 
@@ -19,6 +22,11 @@ export class NavbarComponent {
   searchEmit(){
     console.log(this.search)
     this.sharindgDataService.getSearchEventEmmiter().emit(this.search);
+  }
+
+  onShow(){
+    console.log(this.moviesList)
+    this.sharindgDataService.getShowListEventEmmiter().emit();
   }
  
 }

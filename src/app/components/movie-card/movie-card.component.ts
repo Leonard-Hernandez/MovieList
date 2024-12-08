@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Movie } from '../../models/movie';
+import { SharingDataService } from '../../services/sharing-data.service';
 
 @Component({
   selector: 'movie-card',
@@ -10,5 +11,13 @@ import { Movie } from '../../models/movie';
 export class MovieCardComponent {
 
   @Input() movie!: Movie;
+
+  constructor(
+    private sharindgDataService: SharingDataService
+  ) { }
+
+  onList() {
+    this.sharindgDataService.getCartEventEmmiter().emit(this.movie);
+  }
 
 }

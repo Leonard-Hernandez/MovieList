@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cart</a>
+            <button class="nav-link" (click)="onShow()" >List {{moviesList.length}}</button>
           </li>
         </ul>
         <form class="d-flex" role="search" (ngSubmit)="searchEmit()">

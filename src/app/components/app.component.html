@@ -1,5 +1,6 @@
 <div class="container w-100">
-    <navbar/>
+    <navbar [moviesList]="moviesList"/>
+    <list-modal [moviesList]="moviesList"/>
     <movie-carousel [movies]="movies"/>
     <movies-layout [movies]="movies"/>
 </div>

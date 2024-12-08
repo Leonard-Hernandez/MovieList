@@ -1,0 +1,32 @@
+@if (show == true) {
+    <div class="modal fade" id="staticBackdrop" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">List of Movies</h1>
+                    <button type="button" class="btn-close" (click)="onShow()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (movie of moviesList; track $index) {
+                                <tr>
+                                    <td>{{ movie.title }}</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="onShow()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
